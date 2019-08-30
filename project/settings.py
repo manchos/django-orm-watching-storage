@@ -1,5 +1,6 @@
 import os
 from decouple import config
+import sys
 
 DATABASES = {
     'default': {
@@ -37,3 +38,24 @@ USE_TZ = True
 TIME_ZONE = 'Europe/Moscow'
 
 LANGUAGE_CODE = 'ru-ru'
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'HOST': 'localhost',
+            'NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
+            'TEST_NAME': os.path.join(os.path.dirname(__file__), 'test.db'),
+        }
+    }
+
+    INSTALLED_APPS = [
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'datacenter',
+    ]
+
+    # SOUTH_TESTS_MIGRATE = False

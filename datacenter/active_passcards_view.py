@@ -28,6 +28,4 @@ def active_passcards_view(request):
           remain_time=delta_time)
       )
 
-
-
     return render(request, 'active_passcards.html', context)
