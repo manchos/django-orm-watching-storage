@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
@@ -28,11 +29,9 @@ class Visit(models.Model):
 
     def get_duration(self):
         if self.leaved_at:
-            duration = (timezone.localtime(self.leaved_at)
-                        - timezone.localtime(self.entered_at))
+            duration = (self.leaved_at - self.entered_at)
         else:
-            duration = (timezone.localtime(timezone.now())
-                        - timezone.localtime(self.entered_at))
+            duration = (timezone.now() - self.entered_at)
         return duration.total_seconds()
 
     def is_long(self, minutes=60):

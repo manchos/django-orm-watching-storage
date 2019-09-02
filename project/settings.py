@@ -6,7 +6,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': config('DB_HOST'),
-        'PORT': '5434',
+        'PORT': config('DB_PORT'),
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
@@ -34,7 +34,6 @@ TEMPLATES = [
 
 USE_L10N = True
 USE_TZ = True
-# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Moscow'
 
 LANGUAGE_CODE = 'ru-ru'
@@ -58,4 +57,3 @@ if 'test' in sys.argv:
         'datacenter',
     ]
 
-    # SOUTH_TESTS_MIGRATE = False

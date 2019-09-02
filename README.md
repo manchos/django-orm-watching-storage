@@ -5,31 +5,36 @@ django-orm-watching-storage
 
 Installing
 ----------
-Программа рассчитана для установки на постоянно работающем сервере. Скачиваем файлы в папку django-orm-watching-storage. 
-В этой же папке создаем .env файл. Ваш .env должен содержать строки с константами базы данных:
+
+Create file .env in the root and write in it:
 
 ```
-DB_HOST=хост_вашей_базы
-DB_PORT=порт_вашей_базы
-DB_NAME=имя_вашей_базы   
-DB_USER=пользователь
-DB_PASSWORD=пароль
-SECRET_KEY=секретный_ключ
-DEBUG=флаг_режима_отладки_django
+DB_HOST=db host
+DB_PORT=db port
+DB_NAME=db name
+DB_USER=db user
+DB_PASSWORD=password of db user
+DEBUG=True or False to enable/disable debugging
+SECRET_KEY=secret key
 ```
+Python3 must be already installed.
 
-Далее:
+```bash
 pip install -r requirements.txt
+```
 
-A Simple Example
+How to use
 ----------------
+To run local:
+
 python manage.py runserver 0.0.0.0:8080
 
 Адрес в браузере запущенного сайта –
 
 **http://{ваш_localhost}:8080**
 
-Цель проекта
+Project Goals
 ----------------
 
-Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [dvmn.org](https://dvmn.org/).
+The code is written for educational purposes on online-course for web-developers
+ [dvmn.org](https://dvmn.org/).
