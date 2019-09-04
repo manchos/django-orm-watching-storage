@@ -24,17 +24,23 @@ class Visit(models.Model):
         return "{user} entered at {entered} {leaved}".format(
             user=self.passcard.owner_name,
             entered=self.entered_at,
-            leaved= "leaved at " + str(self.leaved_at) if self.leaved_at else "not leaved"
+            leaved="leaved at " + str(self.leaved_at) if self.leaved_at else "not leaved"
         )
 
     def get_duration(self):
         if self.leaved_at:
-            duration = (self.leaved_at - self.entered_at)
+            duration = self.leaved_at - self.entered_at
         else:
-            duration = (timezone.now() - self.entered_at)
+            duration = timezone.now() - self.entered_at
         return duration.total_seconds()
 
     def is_long(self, minutes=60):
         duration = self.get_duration()
         duration_in_minutes = round(duration // 60)
-        return True if duration_in_minutes > minutes else False
+        return duration_in_minutes > minutes
+
+
+def format_duration(duration_seconds):
+    hours = round(duration_seconds // 3600)
+    minutes = round((duration_seconds % 3600) // 60)
+    return '{}ч {}мин'.format(hours, minutes)

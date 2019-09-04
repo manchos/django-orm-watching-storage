@@ -1,7 +1,9 @@
 django-orm-watching-storage
 =====
-Проект предназначен для автоматизации пульта охраны – онлайн-сервис по мониторингу визитов посетителей, 
-просмотра истории посещений и информации по выданным пропускам.
+The project is designed to automate the security console-online service for monitoring visitors ' visits, 
+view the history of visits and information on the issued passcards.
+
+The security desk is a site that can be connected to the remote database with employees passcards and visits.
 
 Installing
 ----------
@@ -27,11 +29,13 @@ How to use
 ----------------
 To run local:
 
+```bash
 python manage.py runserver 0.0.0.0:8080
+```
 
-Адрес в браузере запущенного сайта –
+Open the page in the browser:
 
-**http://{ваш_localhost}:8080**
+*http://{ваш_localhost}:8080*
 
 Project Goals
 ----------------
